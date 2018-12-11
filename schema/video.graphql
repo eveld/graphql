@@ -1,0 +1,10 @@
+# Video queries.
+extend type Query {
+  video(videoID: String!): Video
+  videos(trackID: String!): [Video!]!
+}
+
+type Video {
+  id: ID!
+  url: String!
+}

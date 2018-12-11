@@ -1,0 +1,3 @@
+//go:generate go-bindata -prefix "schema" -pkg postgres -o bindata.go schema/...
+
+package postgres

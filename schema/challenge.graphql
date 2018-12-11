@@ -1,0 +1,49 @@
+# Challenge queries.
+extend type Query {
+  challenge(challengeID: String!): Challenge
+  challenges(trackID: String!): [Challenge!]!
+}
+
+# Challenge mutations.
+extend type Mutation {
+  createChallenge(input: NewChallenge!): Challenge
+}
+
+type Challenge {
+  id: ID!
+  slug: String!
+  title: String!
+  teaser: String!
+  assignment: String!
+  difficulty: String!
+  timelimit: Int!
+  tabs: [Tab!]!
+}
+
+input NewChallenge {
+  slug: String!
+  title: String!
+  teaser: String!
+  assignment: String!
+  difficulty: String!
+  timelimit: Int!
+}
+
+type Tab {
+  id: ID!
+  title: String!
+  type: TabType!
+  hostname: String
+  path: String
+  port: Int
+  url: String
+  target: String!
+  index: Int
+}
+
+enum TabType {
+  TERMINAL
+  EDITOR
+  SERVICE
+  EXTERNAL
+}

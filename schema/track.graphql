@@ -1,0 +1,28 @@
+# Track queries.
+extend type Query {
+  track(trackID: String!): Track 
+  tracks: [Track!]!
+}
+
+# Track mutations.
+extend type Mutation {
+  createTrack(input: NewTrack!): Track
+}
+
+type Track {
+  id: ID!
+  slug: String!
+  title: String!
+  teaser: String!
+  description: String!
+  items: [TrackItem!]!
+}
+
+union TrackItem = Challenge | Note | Video
+
+input NewTrack {
+  slug: String!
+  title: String!
+  teaser: String!
+  description: String!
+}

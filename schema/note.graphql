@@ -1,0 +1,10 @@
+# Note queries.
+extend type Query {
+  note(noteID: String!): Note
+  notes(trackID: String!): [Note!]!
+}
+
+type Note {
+  id: ID!
+  content: String!
+}
