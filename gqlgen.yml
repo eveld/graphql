@@ -27,8 +27,12 @@ models:
     model: github.com/eveld/graphql/models.NewChallenge
   Tab:
     model: github.com/eveld/graphql/models.Tab
+  TabType:
+    model: github.com/eveld/graphql/models.TabType
   Note:
     model: github.com/eveld/graphql/models.Note
   Video:
     model: github.com/eveld/graphql/models.Video
+  Role:
+    model: github.com/eveld/graphql/models.Role
   
