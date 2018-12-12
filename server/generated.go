@@ -961,7 +961,7 @@ func (ec *executionContext) _Challenge_tabs(ctx context.Context, field graphql.C
 	ctx = ec.Tracer.StartFieldResolverExecution(ctx, rctx)
 	resTmp := ec.FieldMiddleware(ctx, obj, func(rctx context.Context) (interface{}, error) {
 		ctx = rctx // use context from middleware stack in children
-		return obj.Tabs()
+		return obj.Tabs, nil
 	})
 	if resTmp == nil {
 		if !ec.HasError(rctx) {

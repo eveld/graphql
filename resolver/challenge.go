@@ -7,7 +7,17 @@ import (
 )
 
 func (r *queryResolver) Challenge(ctx context.Context, challengeID string) (*models.Challenge, error) {
-	return nil, nil
+	challenge, err := r.ChallengeService.GetChallenge(challengeID)
+	if err != nil {
+		return nil, err
+	}
+
+	challenge.Tabs = []models.Tab{
+		models.Tab{
+			Title: "title",
+		},
+	}
+	return challenge, nil
 }
 
 func (r *queryResolver) Challenges(ctx context.Context, trackID string) ([]models.Challenge, error) {

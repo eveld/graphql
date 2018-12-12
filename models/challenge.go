@@ -9,16 +9,8 @@ type Challenge struct {
 	Assignment string `yaml:"assignment"       json:"assignment"         db:"assignment"`
 	Difficulty string `yaml:"difficulty"       json:"difficulty"         db:"difficulty"`
 	TimeLimit  int    `yaml:"timelimit"        json:"timelimit"          db:"timelimit"`
+	Tabs       []Tab  `yaml:"tabs"             json:"tabs"               db:"-"`
 	Deleted    int64  `yaml:"-"                json:"-"                  db:"deleted"`
-}
-
-func (c *Challenge) Tabs() ([]Tab, error) {
-	return []Tab{
-		Tab{
-			ID:    "x",
-			Title: "title",
-		},
-	}, nil
 }
 
 // IsTrackItem allows us to query a union of track items.
